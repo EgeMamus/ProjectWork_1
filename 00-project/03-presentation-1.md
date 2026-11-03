@@ -40,14 +40,16 @@ A web application that:
 
 ## Main goal and research component
 
-**Deliver a working routing application and compare at least two optimization approaches.**
+**Goal:** Build a routing application and compare two optimization approaches.
 
-| Approach                               | Purpose                                                       |
-| -------------------------------------- | ------------------------------------------------------------- |
-| **Waypoint generation + A\*/Dijkstra** | Interpretable, reproducible baseline for valid loops          |
-| **Genetic waypoint optimization**      | Search for better route candidates under the same preferences |
+| Approach                    | Purpose                  |
+| :-------------------------- | :----------------------- |
+| **Waypoint + A\*/Dijkstra** | Baseline for valid loops |
+| **Genetic optimization**    | Search for better loops  |
 
-Compare **route quality, runtime, valid-loop rate and scalability** on shared test scenarios. The second method's advantage is a hypothesis, not an assumed result.
+**Compare:** route quality, runtime, valid-loop rate and scalability.
+
+_Genetic improvement is a hypothesis, not a guaranteed result._
 
 ---
 
@@ -76,22 +78,6 @@ Compare **route quality, runtime, valid-loop rate and scalability** on shared te
 **Hard constraints:** route closure, legal running/cycling access and any explicit user prohibitions.
 
 Weights and normalization will be validated experimentally; unknown surface/elevation values will be shown as unknown, not guessed.
-
----
-
-## Proposed technology stack
-
-| Component                      | Technology                  |
-| ------------------------------ | --------------------------- |
-| Algorithms and data processing | **Python, OSMnx, NetworkX** |
-| Backend API                    | **FastAPI**                 |
-| Web interface                  | **React + TypeScript**      |
-| Map visualization              | **MapLibre GL JS**          |
-| Automated testing              | **pytest**                  |
-| Source control                 | **Git / GitHub**            |
-| Later, if justified            | **PostgreSQL + PostGIS**    |
-
-**Separation:** OSM preparation → optimization engine → API → web map. An external elevation source may be needed.
 
 ---
 
@@ -145,20 +131,6 @@ If no feasible loop exists, the app explains that clearly.
 5. Compare **quality, execution time, scalability and failure rate**.
 
 Do not discard unsuccessful runs from the experimental results.
-
----
-
-## Milestones: approximately one year
-
-| Period       | Planned outcome                                     |
-| ------------ | --------------------------------------------------- |
-| Months 1–2   | OSM graph/data foundation                           |
-| Months 3–4   | First valid ~5 km loop in Pécs                      |
-| Months 5–7   | Preference scoring, second algorithm, benchmarks    |
-| Months 8–9   | FastAPI and React/MapLibre application              |
-| Months 10–12 | Performance, optional persistence, tests and report |
-
-The plan will be refined after early feasibility testing.
 
 ---
 
