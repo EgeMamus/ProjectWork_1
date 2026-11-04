@@ -53,34 +53,6 @@ _Genetic improvement is a hypothesis, not a guaranteed result._
 
 ---
 
-## Planned algorithm logic
-
-1. Prepare an OSM **directed road/path graph** with length, permitted mode, surface and available terrain/elevation properties.
-2. Generate waypoint sequences around the start.
-3. Connect waypoint pairs using legal shortest paths.
-4. Return to the starting node; reject disconnected or forbidden paths.
-5. Measure candidate distance, ascent, surfaces, terrain and repeated segments.
-6. Rank feasible loops and present several distinct choices where possible.
-
-**Why a loop generator?** Dijkstra/A\* alone do not solve the fixed-distance closed-loop problem.
-
----
-
-## Multi-criteria route scoring
-
-**Initial proposed objective:** minimize a weighted combination of:
-
-- Deviation from requested distance
-- Undesired elevation gain
-- Disfavored road surfaces and terrain
-- Repeated road segments
-
-**Hard constraints:** route closure, legal running/cycling access and any explicit user prohibitions.
-
-Weights and normalization will be validated experimentally; unknown surface/elevation values will be shown as unknown, not guessed.
-
----
-
 ## Target users
 
 | User                   | Need                                                       |
